@@ -686,7 +686,7 @@ namespace wow64pp {
     template<class... Args>
     inline std::uint64_t call_function(std::uint64_t func, Args... args)
     {
-        std::uint64_t arr_args[] = { (std::uint64_t)(args)... };
+        std::uint64_t arr_args[4] = { (std::uint64_t)(args)... };
 
         // clang-format off
         constexpr static std::uint8_t shellcode[] = {
@@ -815,7 +815,7 @@ namespace wow64pp {
         return ret;
     }
 
-    /** \brief An equalient of winapi GetProcAddress function.
+    /** \brief An equivalent of winapi GetProcAddress function.
      *   \param[in] hmodule The handle to the module in which to search for the
      * procedure. \param[in] procedure_name The name of the procedure to be searched
      * for. \param[out] ec An error code that will be set in case of failure \return
